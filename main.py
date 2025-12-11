@@ -1,4 +1,4 @@
-ef menu():
+def menu():
     inicializar_banco()
 
     while True:
@@ -27,4 +27,5 @@ ef menu():
 
 
 if __name__ == "__main__":
+
     menu()
