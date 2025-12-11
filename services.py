@@ -1,5 +1,5 @@
 from database import session
-from model import (
+from models import (
     Consulta,
     Fisioterapeuta,
     Sala,
@@ -113,3 +113,4 @@ def listar_pagamentos():
 
 def buscar_pagamento(id):
     return session.query(Pagamento).filter_by(id=id).first()
+
