@@ -1,4 +1,4 @@
-from database import session
+from database import SessionLocal
 from models import (
     Consulta,
     Fisioterapeuta,
@@ -6,6 +6,8 @@ from models import (
     Paciente,
     Pagamento
 )
+
+session = SessionLocal()
 
 #  FISIOTERAPEUTA
 def cadastrar_fisioterapeuta(nome_fisioterapeuta, especialidade, telefone=None, email=None):
@@ -113,4 +115,5 @@ def listar_pagamentos():
 
 def buscar_pagamento(id):
     return session.query(Pagamento).filter_by(id=id).first()
+
 
