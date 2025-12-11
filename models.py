@@ -7,8 +7,8 @@ class Fisioterapeuta(Base):
     __tablename__ = 'fisioterapeutas'
 
     id = Column(Integer, primary_key=True)
-    nome_fisioterapeuta = Column(String, nullable=False)
-    especialidade = Column(String, nullable=False)
+    nome_fisioterapeuta = Column(String(120), nullable=False)
+    especialidade = Column(String(120), nullable=False)
     telefone = Column(String(20))
     email = Column(String(120))
 
@@ -23,7 +23,7 @@ class Paciente(Base):
     data_nascimento = Column(Date)
     telefone = Column(String(20))
     email = Column(String(120))
-    sexo = Column(String(120))
+    sexo = Column(String(10))
     endereco = Column(String(255))
 
     consultas = relationship('Consulta', back_populates='paciente')
@@ -48,9 +48,9 @@ class Consulta(Base):
     fisioterapeuta_id = Column(Integer, ForeignKey('fisioterapeutas.id'), nullable=False)
     sala_id = Column(Integer, ForeignKey('salas.id'), nullable=True)
 
-    tipo_tratamento = Column(String, nullable=False)
+    tipo_tratamento = Column(String(120), nullable=False)
     data_hora = Column(DateTime, nullable=False)
-    status = Column(String, nullable=False)
+    status = Column(String(50), nullable=False)
 
     paciente = relationship('Paciente', back_populates='consultas')
     fisioterapeuta = relationship('Fisioterapeuta', back_populates='consultas')
